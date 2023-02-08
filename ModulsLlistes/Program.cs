@@ -19,6 +19,14 @@ namespace BotigaLlistes
             else 
             Console.WriteLine(botiga.PrimerProducte().Nom);
 
+            if (botiga.DarrerProducte() == null)
+            {
+                Console.WriteLine("No hi ha productes");
+            }
+
+            else
+                Console.WriteLine(botiga.DarrerProducte().Nom);
+
             botiga.ExempleAfegirProducte();
 
             //botiga.EsborrarProductesPerPreu(3);

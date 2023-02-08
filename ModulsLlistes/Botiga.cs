@@ -10,18 +10,18 @@ namespace BotigaLlistes
     {
         public String NomBotiga { set; get; }
         List<Producte> productes;
-       
+
         public Botiga() {
             productes = new List<Producte>();
-       
+
         }
 
         public void Buidar()
-        {            
+        {
             productes.Clear();
         }
 
-        public void ExempleAfegirProducte()        {
+        public void ExempleAfegirProducte() {
 
             Producte producte1 = new Producte("Gelat", 2, 7);
             productes.Add(producte1);
@@ -49,8 +49,8 @@ namespace BotigaLlistes
 
             return (producte);
         }
- 
-       public Producte BuscarProducte2(Producte p)
+
+        public Producte BuscarProducte2(Producte p)
         {
             Producte producte = null;
             producte = productes.Find(a => a.Nom.Equals(p.Nom));
@@ -83,7 +83,7 @@ namespace BotigaLlistes
             {
                 Producte p = productes.ElementAt(i);
                 //O bé amb Producte a = productes.[i];
-                
+
                 estoc = estoc + p.toString();
             }
             return (estoc);
@@ -123,7 +123,7 @@ namespace BotigaLlistes
         {
             int result = 0;
 
-            result=productes.Count();
+            result = productes.Count();
 
             return (result);
 
@@ -135,8 +135,15 @@ namespace BotigaLlistes
         /// </summary>
         public Producte PrimerProducte()
         {
-            return productes.Any() ? productes.First() : null;
+            Producte producte = null;
+
+            if (productes.Any())
+                producte = productes.First();
+
+
+            return (producte);
         }
+
 
         /// <summary>
         /// Mostrar el darrer element  de la llista
@@ -144,9 +151,12 @@ namespace BotigaLlistes
         /// </summary>
         public Producte DarrerProducte()
         {
-            
-            return productes.Any() ? productes.Last() : null;
-            
+            Producte producte = null;
+
+            if (productes.Any())
+                producte = productes.Last();
+
+            return (producte);
         }
 
         /// <summary>
@@ -154,7 +164,7 @@ namespace BotigaLlistes
         /// </summary>
         public void InserirProductePrincipiLlista(Producte producte)
         {
-            productes.Insert(0,producte);
+            productes.Insert(0, producte);
 
 
         }
@@ -164,13 +174,13 @@ namespace BotigaLlistes
         /// </summary>        
         public void EsborrarProductesPerPreu(double preu)
         {
-            
-                     
+
+
             productes.RemoveAll(a => a.Preu_sense_iva == preu);
-            
+
         }
 
-        
+    }  
 
-    }
+    
 }
